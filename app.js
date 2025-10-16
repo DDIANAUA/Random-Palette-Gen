@@ -7,6 +7,16 @@ document.addEventListener('keydown', (event) => {
 	}
 });
 
+document.addEventListener('touchstart', (event) => {
+	const isLockButton = event.target.closest('button[data-type="lock"]');
+	const isCopyElement = event.target.closest('[data-type="copy"]');
+
+	if (!isLockButton && !isCopyElement) {
+		event.preventDefault();
+		setRandomColours();
+	}
+});
+
 setRandomColours();
 
 document.addEventListener('click', (event) => {
