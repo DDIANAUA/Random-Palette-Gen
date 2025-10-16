@@ -1,7 +1,7 @@
 const colElements = document.querySelectorAll('.col');
 
 document.addEventListener('keydown', (event) => {
-	if ((event.code.toLowerCase = 'space')) {
+	if (event.code.toLowerCase() === 'space') {
 		event.preventDefault();
 		setRandomColours();
 	}
@@ -11,12 +11,11 @@ setRandomColours();
 
 document.addEventListener('click', (event) => {
 	const buttonLockElement = event.target.closest('button[data-type="lock"]');
-	const headindColorTextElement = (event.target.dataset.type = 'copy');
 	if (buttonLockElement) {
 		const lockIconElement = buttonLockElement.children[0];
 		lockIconElement.classList.toggle('fa-lock-open');
 		lockIconElement.classList.toggle('fa-lock');
-	} else if (headindColorTextElement) {
+	} else if (event.target.closest('[data-type="copy"]')) {
 		copyToClipboard(event.target.textContent);
 	}
 });
